@@ -82,14 +82,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inventory.html">Inventory</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Listings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Listings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-my-listings">Get my listings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-my-sales">Get my sales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-listing">Create a new listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-a-listing">Update a listing</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="orders.html">Orders</a></li>
 <li class="toctree-l1"><a class="reference internal" href="profile.html">Profile</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Lib</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../lib/index.html">Welcome to NeoPlace lib’s documentation!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lib/index.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 
             
@@ -158,6 +163,86 @@
             
   <div class="section" id="listings">
 <h1>Listings<a class="headerlink" href="#listings" title="Permalink to this headline">¶</a></h1>
+<p>API calls for handling listings</p>
+<div class="section" id="get-my-listings">
+<h2>Get my listings<a class="headerlink" href="#get-my-listings" title="Permalink to this headline">¶</a></h2>
+<p>Get my own listings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">neoplace</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">mypublished</span>
+</pre></div>
+</div>
+<p><em>HEADERS</em></p>
+<p><strong>Authorization</strong> Bearer {{token_access}}</p>
+</div>
+<div class="section" id="get-my-sales">
+<h2>Get my sales<a class="headerlink" href="#get-my-sales" title="Permalink to this headline">¶</a></h2>
+<p>Get my sales:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">neoplace</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">mysales</span>
+</pre></div>
+</div>
+<p><em>HEADERS</em></p>
+<p><strong>Authorization</strong> Bearer {{token_access}}</p>
+</div>
+<div class="section" id="create-a-new-listing">
+<h2>Create a new listing<a class="headerlink" href="#create-a-new-listing" title="Permalink to this headline">¶</a></h2>
+<p>Create a new listing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">neoplace</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">new</span>
+</pre></div>
+</div>
+<p><em>HEADERS</em></p>
+<div class="line-block">
+<div class="line"><strong>Authorization</strong> Bearer {{token_access}}</div>
+<div class="line"><strong>Content-Type</strong> application/x-www-form-urlencoded</div>
+</div>
+<p><em>BODY</em></p>
+<div class="line-block">
+<div class="line"><strong>title</strong> {{title}}</div>
+<div class="line"><strong>subtitle</strong> {{subtitle}}</div>
+<div class="line"><strong>type</strong> {{category}}</div>
+<div class="line"><strong>description</strong>: {{description}}</div>
+<div class="line"><strong>price</strong>: {{price}}</div>
+<div class="line"><strong>ean</strong>: {{ean}}</div>
+<div class="line"><strong>urlPicture</strong>: {{ipfs_hash1, ipfs_hash2, …}}</div>
+<div class="line"><strong>latitude</strong>: {{latitude}}</div>
+<div class="line"><strong>longitude</strong> {{longitude}}</div>
+<div class="line"><strong>currency</strong> {{currency}}</div>
+<div class="line"><strong>brand</strong> {{brand}}</div>
+<div class="line"><strong>model</strong> {{model}}</div>
+<div class="line"><strong>condition</strong> {{condition}}</div>
+<div class="line"><strong>tags</strong> {{tag1, tag2, tag3, …}}</div>
+<div class="line"><strong>status</strong> {{status}}</div>
+</div>
+</div>
+<div class="section" id="update-a-listing">
+<h2>Update a listing<a class="headerlink" href="#update-a-listing" title="Permalink to this headline">¶</a></h2>
+<p>Update a listing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">neoplace</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">update</span>
+</pre></div>
+</div>
+<p><em>HEADERS</em></p>
+<div class="line-block">
+<div class="line"><strong>Authorization</strong> Bearer {{token_access}}</div>
+<div class="line"><strong>Content-Type</strong> application/x-www-form-urlencoded</div>
+</div>
+<p><em>BODY</em></p>
+<div class="line-block">
+<div class="line"><strong>title</strong> {{title}}</div>
+<div class="line"><strong>subtitle</strong> {{subtitle}}</div>
+<div class="line"><strong>type</strong> {{category}}</div>
+<div class="line"><strong>description</strong>: {{description}}</div>
+<div class="line"><strong>price</strong>: {{price}}</div>
+<div class="line"><strong>ean</strong>: {{ean}}</div>
+<div class="line"><strong>urlPicture</strong>: {{ipfs_hash1, ipfs_hash2, …}}</div>
+<div class="line"><strong>latitude</strong>: {{latitude}}</div>
+<div class="line"><strong>longitude</strong> {{longitude}}</div>
+<div class="line"><strong>currency</strong> {{currency}}</div>
+<div class="line"><strong>brand</strong> {{brand}}</div>
+<div class="line"><strong>model</strong> {{model}}</div>
+<div class="line"><strong>condition</strong> {{condition}}</div>
+<div class="line"><strong>tags</strong> {{tag1, tag2, tag3, …}}</div>
+<div class="line"><strong>status</strong> {{status}}</div>
+<div class="line"><strong>id</strong> {{article_id}}</div>
+</div>
+</div>
 </div>
 
 
