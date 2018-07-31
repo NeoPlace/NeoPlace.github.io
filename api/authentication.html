@@ -170,7 +170,7 @@
 <p>To start using the API, you need first to get a token.</p>
 <p>To get a token, we are not using traditional email/password registration processes, we use a new authentication method: a cryptographically-secure login flow using the MetaMask extension or web3 library.
 The basic idea is that it’s cryptographically easy to prove the ownership of an account by signing a piece of data using a private key.</p>
-<p>First you need to get a <cite>nonce</cite> for your ethereum address:</p>
+<p>First you need to get a <cite>nonce</cite> for your ethereum address (GET request):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.neoplace.io/subscribe/address?publicAddress={{ethereum_address}}
 </pre></div>
 </div>
@@ -181,17 +181,26 @@ The basic idea is that it’s cryptographically easy to prove the ownership of a
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>If you have received an empty response, you must signup before (POST request):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">request</span> <span class="n">POST</span> \
+  <span class="o">--</span><span class="n">url</span> <span class="s2">&quot;https://api.neoplace.io/subscribe/signup&quot;</span> \
+  <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+  <span class="s2">&quot;publicAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ethereum_address}}&quot;</span><span class="p">,</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>Then you can redo the identification process.</p>
 </div>
 <div class="section" id="sign-the-message">
 <h2>Sign the message<a class="headerlink" href="#sign-the-message" title="Permalink to this headline">¶</a></h2>
-<p>Once you receive the <cite>nonce</cite> in the response from the API call above, sign the message with your private key by running the following code:</p>
+<p>Once you receive the <cite>nonce</cite> in the response from the API call above, sign the message with your private key by running the following code (web3 library required):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">web3</span><span class="o">.</span><span class="n">personal</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">web3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="obtain-authentication-token">
 <h2>Obtain authentication token<a class="headerlink" href="#obtain-authentication-token" title="Permalink to this headline">¶</a></h2>
-<p>Once you signed the message with your private key, make another API call with with both ethereum address and signature (curl method or equivalent):</p>
+<p>Once you signed the message with your private key, make another API call with with both ethereum address and signature (curl method or equivalent, POST request):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">request</span> <span class="n">POST</span> \
     <span class="o">--</span><span class="n">url</span> <span class="s1">&#39;https://api.neoplace.io/login&#39;</span> \
     <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
