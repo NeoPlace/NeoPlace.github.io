@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>NeoPlace library &mdash; NeoPlace 1.0 documentation</title>
+  <title>Interacting with IPFS &mdash; NeoPlace 1.0 documentation</title>
   
 
   
@@ -28,8 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Profile" href="../api/profile.html" /> 
+    <link rel="prev" title="Interacting with NeoPlace smart contract" href="web3.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -84,10 +83,14 @@
 </ul>
 <p class="caption"><span class="caption-text">Lib</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">NeoPlace library</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">NeoPlace library</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="web3.html">Interacting with NeoPlace smart contract</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ipfs.html">Interacting with IPFS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Interacting with IPFS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instantiate-the-ipfs-class">Instantiate the IPFS class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-data-to-ipfs">Push data to IPFS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -135,13 +138,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>NeoPlace library</li>
+          <li><a href="index.html">NeoPlace library</a> &raquo;</li>
+        
+      <li>Interacting with IPFS</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/lib/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/lib/ipfs.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -154,30 +159,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="neoplace-library">
-<h1>NeoPlace library<a class="headerlink" href="#neoplace-library" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#build-the-project">Build the project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#use-directly-our-library">Use directly our library</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="web3.html">Interacting with NeoPlace smart contract</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="web3.html#instantiate-the-web3-provider">Instantiate the web3 provider</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web3.html#available-methods">Available methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web3.html#buy-an-item">Buy an item</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web3.html#unlock-funds">Unlock funds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web3.html#send-some-eth-with-the-smart-contract">Send some eth with the smart contract</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ipfs.html">Interacting with IPFS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ipfs.html#instantiate-the-ipfs-class">Instantiate the IPFS class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ipfs.html#push-data-to-ipfs">Push data to IPFS</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="interacting-with-ipfs">
+<h1>Interacting with IPFS<a class="headerlink" href="#interacting-with-ipfs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="instantiate-the-ipfs-class">
+<h2>Instantiate the IPFS class<a class="headerlink" href="#instantiate-the-ipfs-class" title="Permalink to this headline">¶</a></h2>
+<p>Instantiate the IPFS class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">constructor</span><span class="p">(</span><span class="n">private</span> <span class="n">ipfsService</span><span class="p">:</span> <span class="n">IpfsService</span><span class="p">)</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>We use the <em>Infura</em> gateway.</p>
+</div>
+<div class="section" id="push-data-to-ipfs">
+<h2>Push data to IPFS<a class="headerlink" href="#push-data-to-ipfs" title="Permalink to this headline">¶</a></h2>
+<p>Add text data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">ipfsService</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s2">&quot;your text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">resp</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;ipfs hash: &quot;</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">hash</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Add a file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span><span class="o">.</span><span class="n">ipfsService</span><span class="o">.</span><span class="n">addFile</span><span class="p">([</span><span class="n">your</span> <span class="n">file</span><span class="p">])</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">reader</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">this</span><span class="o">.</span><span class="n">ipfsService</span><span class="o">.</span><span class="n">saveToIpfs</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">resp</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;ipfs hash: &quot;</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">hash</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -189,10 +196,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../api/profile.html" class="btn btn-neutral" title="Profile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="web3.html" class="btn btn-neutral" title="Interacting with NeoPlace smart contract" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
