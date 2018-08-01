@@ -171,7 +171,7 @@
 <p>To get a token, we are not using traditional email/password registration processes, we use a new authentication method: a cryptographically-secure login flow using the MetaMask extension or web3 library.
 The basic idea is that it’s cryptographically easy to prove the ownership of an account by signing a piece of data using a private key.</p>
 <p>First you need to get a <cite>nonce</cite> for your ethereum address (GET request):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.neoplace.io/subscribe/address?publicAddress={{ethereum_address}}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.neoplace.io/api/subscribe/address?publicAddress={{ethereum_address}}
 </pre></div>
 </div>
 <p>Response:</p>
@@ -183,7 +183,7 @@ The basic idea is that it’s cryptographically easy to prove the ownership of a
 </div>
 <p>If you have received an empty response, you must signup before (POST request):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">request</span> <span class="n">POST</span> \
-  <span class="o">--</span><span class="n">url</span> <span class="s2">&quot;https://api.neoplace.io/subscribe/signup&quot;</span> \
+  <span class="o">--</span><span class="n">url</span> <span class="s2">&quot;https://api.neoplace.io/api/subscribe/signup&quot;</span> \
   <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
   <span class="s2">&quot;publicAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ethereum_address}}&quot;</span><span class="p">,</span>
 <span class="p">}</span><span class="s1">&#39;</span>
