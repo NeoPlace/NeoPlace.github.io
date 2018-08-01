@@ -194,7 +194,7 @@ The basic idea is that it’s cryptographically easy to prove the ownership of a
 <div class="section" id="sign-the-message">
 <h2>Sign the message<a class="headerlink" href="#sign-the-message" title="Permalink to this headline">¶</a></h2>
 <p>Once you receive the <cite>nonce</cite> in the response from the API call above, sign the message with your private key by running the following code (web3 library required):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">web3</span><span class="o">.</span><span class="n">personal</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">web3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">coinbase</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>web3.personal.sign(web3.fromUtf8(`Log in NeoPlace (nonce: ${nonce})`), web3.eth.coinbase, console.log);
 </pre></div>
 </div>
 </div>
